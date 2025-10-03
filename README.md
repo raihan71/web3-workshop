@@ -1,5 +1,8 @@
 # Web3 Workshop
 
+<img width="1456" height="1456" alt="localhost_4200_(Nest Hub Max)" src="https://github.com/user-attachments/assets/6caa6afa-8026-4edd-879b-69848ed694d9" />
+
+
 This project demonstrates a simple Web3 setup with a smart contract backend and an Angular frontend. QuickNode is used as the blockchain node provider.
 
 ## Prerequisites
