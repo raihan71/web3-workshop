@@ -1,0 +1,53 @@
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.pills mat-chip {
+  background: rgba(255, 255, 255, 0.06);
+}
+h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.05;
+}
+.accent {
+  background: linear-gradient(90deg, #7cf9ff, #b2f7ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.copy .cta {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0 8px;
+}
+.metrics {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.metrics strong {
+  font-size: 18px;
+}
+.demo {
+  padding: 8px;
+}
+.demo-rows {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+.demo .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+}
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+}

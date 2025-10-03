@@ -1,0 +1,16 @@
+<section class="section container">
+  <h2>Everything you need to ship Web3 UI</h2>
+  <p class="muted">Composable primitives that feel native to Angular Material.</p>
+
+  <div class="bento">
+    @for (f of items; track $index) {
+    <mat-card class="card feature blue-glassmorphism">
+      <div class="feature-head">
+        <mat-icon aria-hidden="true">{{ f.icon }}</mat-icon>
+        <h3>{{ f.title }}</h3>
+      </div>
+      <p class="muted">{{ f.desc }}</p>
+    </mat-card>
+    }
+  </div>
+</section>

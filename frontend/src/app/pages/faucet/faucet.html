@@ -1,0 +1,90 @@
+<div
+  class="faucet-container"
+  style="
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 16px;
+  "
+>
+  <!-- Left Column: Hero Text Caption -->
+  <div class="faucet-hero" style="flex: 1; min-width: 300px; max-width: 600px; padding-left: 58px">
+    <h1 class="txt-white" style="margin-top: 0">Advanced Faucet Wallet</h1>
+    <p class="txt-white" style="font-size: 1.2em">
+      Instantly send custom amounts of testnet tokens to any address.<br />
+      Add a message for context and test your dApps with ease.
+    </p>
+  </div>
+
+  <!-- Right Column: The Card -->
+  <div style="flex: 1; min-width: 350px">
+    <mat-card class="gradient-bg-welcome">
+      <mat-card-header>
+        <mat-card-title>Advanced Faucet Wallet</mat-card-title>
+        <mat-card-subtitle>Send custom amounts of testnet tokens with a message.</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="wallet-status blue-glassmorphism">
+          <p class="txt-white">
+            <strong>Connected Account:</strong> {{ account ? account : 'Not Connected' }}
+          </p>
+          <button mat-raised-button color="primary" *ngIf="!isConnected" (click)="connectWallet()">
+            Connect Wallet
+          </button>
+        </div>
+
+        <form [formGroup]="faucetForm" (ngSubmit)="sendTokens()" *ngIf="isConnected">
+          <mat-form-field appearance="fill">
+            <mat-label>Recipient Address</mat-label>
+            <input matInput formControlName="recipientAddress" placeholder="0x..." required />
+            <mat-error *ngIf="faucetForm.get('recipientAddress')?.hasError('required')">
+              Recipient address is required.
+            </mat-error>
+            <mat-error *ngIf="faucetForm.get('recipientAddress')?.hasError('pattern')">
+              Please enter a valid Ethereum address.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Amount (ETH)</mat-label>
+            <input
+              matInput
+              type="number"
+              formControlName="amount"
+              placeholder="e.g., 0.1"
+              required
+              min="0.0001"
+            />
+            <mat-error *ngIf="faucetForm.get('amount')?.hasError('required')">
+              Amount is required.
+            </mat-error>
+            <mat-error *ngIf="faucetForm.get('amount')?.hasError('min')">
+              Amount must be greater than 0.0001 ETH.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Transaction Message (Optional)</mat-label>
+            <textarea
+              matInput
+              formControlName="message"
+              placeholder="e.g., For testing purposes"
+            ></textarea>
+          </mat-form-field>
+
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!faucetForm.valid || isLoading"
+          >
+            {{ isLoading ? 'Sending...' : 'Send Tokens' }}
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

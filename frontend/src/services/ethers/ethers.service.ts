@@ -13,12 +13,10 @@ export class Ethers {
   private contractABI = contractABI;
   private contractAddress = contractAddress;
 
-  constructor() {
-    this.initializeEthers();
-  }
+  constructor() {}
 
   private async initializeEthers() {
-    if (typeof (window as any).ethereum !== 'undefined') {
+    if (typeof (globalThis.window as any).ethereum !== 'undefined') {
       this.provider = new ethers.BrowserProvider((window as any).ethereum);
       this.signer = await this.provider.getSigner();
       this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.signer);
@@ -32,11 +30,12 @@ export class Ethers {
   }
 
   public async connectWallet(): Promise<string | null> {
-    if (!this.provider) {
-      console.error('Provider is not initialized.');
-      return null;
-    }
     try {
+      await this.initializeEthers();
+      if (!this.provider) {
+        console.error('Provider is not initialized after calling initializeEthers.');
+        return null;
+      }
       const accounts = await this.provider.send('eth_requestAccounts', []);
       return accounts[0];
     } catch (error) {
@@ -61,7 +60,7 @@ export class Ethers {
 
   public async sendTransaction(
     to: string,
-    amount: string,
+    amount: number,
     message: string,
     keyword: string
   ): Promise<ethers.TransactionResponse | null> {
@@ -70,20 +69,21 @@ export class Ethers {
       return null;
     }
     try {
-      const parsedAmount = ethers.parseEther(amount);
-      const transactionParameters = {
+      const newAmount = amount.toString();
+      const parsedAmount = ethers.parseEther(newAmount);
+
+      const contractTx = await this.contract['addToBlockchain'](
         to,
-        value: parsedAmount,
-      };
-
-      const txResponse = await this.signer.sendTransaction(transactionParameters);
-      await txResponse.wait();
-
-      const txHash = txResponse.hash;
-      const contractTx = await this.contract['addToBlockchain'](to, parsedAmount, message, keyword);
+        parsedAmount,
+        message,
+        keyword,
+        {
+          value: parsedAmount,
+        }
+      );
       await contractTx.wait();
 
-      return txResponse;
+      return contractTx;
     } catch (error) {
       console.error('Error sending transaction:', error);
       return null;

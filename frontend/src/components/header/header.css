@@ -1,0 +1,33 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(11, 13, 19, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+.nav {
+  display: flex;
+  gap: 8px;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+}
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+}

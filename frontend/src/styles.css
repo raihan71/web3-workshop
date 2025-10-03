@@ -1,1 +1,170 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #0b0d13;
+  --card: #111522;
+  --muted: #9aa3b2;
+  --text: #e6e9ef;
+  --accent: #6ee7ff;
+}
+
+:host {
+  display: block;
+}
+
+* html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, 'Noto Sans',
+    'Helvetica Neue', sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 20% -10%, #18213a 0%, transparent 60%),
+    radial-gradient(900px 600px at 90% 0%, #1b273f 0%, transparent 60%), var(--bg);
+}
+.page {
+  display: block;
+}
+.container {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+.grid {
+  display: grid;
+  gap: 16px;
+}
+.bg-yellow {
+  background: #fffbeb;
+}
+.bg-blue {
+  background: #f0f9ff;
+}
+.bg-purple {
+  background: #f5f3ff;
+}
+.bg-pink {
+  background: #fff1f2;
+}
+.bg-green {
+  background: #f0fdf4;
+}
+.txt-center {
+  text-align: center;
+}
+
+.txt-white {
+  color: #ffffff;
+}
+
+.txt-dark {
+  color: #000000;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.btn-primary.mat-mdc-button-base {
+  background: linear-gradient(90deg, #00e5ff, #7cf9ff) !important;
+  color: #001018;
+  font-weight: 600;
+}
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+}
+.muted {
+  color: var(--muted);
+}
+.section {
+  padding: 72px 0;
+}
+.section-sm {
+  padding: 48px 0;
+}
+h1,
+h2,
+h3 {
+  margin: 0 0 12px;
+}
+.gradient-bg-welcome {
+  background-color: #0f0e13;
+  background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+}
+
+.gradient-bg-services {
+  background-color: #0f0e13;
+  background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 100%, hsla(225, 39%, 25%, 1) 0, transparent 50%);
+}
+
+.gradient-bg-transactions {
+  background-color: #0f0e13;
+  background-image: radial-gradient(at 0% 100%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 25%, 1) 0, transparent 50%);
+}
+
+.gradient-bg-footer {
+  background-color: #0f0e13;
+  background-image: radial-gradient(at 0% 100%, hsla(253, 16%, 7%, 1) 0, transparent 53%),
+    radial-gradient(at 50% 150%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+}
+
+.blue-glassmorphism {
+  background: rgb(39, 51, 89, 0.4) !important;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* white glassmorphism */
+.white-glassmorphism {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.eth-card {
+  background-color: #a099ff;
+  background-image: radial-gradient(at 83% 67%, rgb(152, 231, 156) 0, transparent 58%),
+    radial-gradient(at 67% 20%, hsla(357, 94%, 71%, 1) 0, transparent 59%),
+    radial-gradient(at 88% 35%, hsla(222, 81%, 65%, 1) 0, transparent 50%),
+    radial-gradient(at 31% 91%, hsla(9, 61%, 61%, 1) 0, transparent 52%),
+    radial-gradient(at 27% 71%, hsla(336, 91%, 65%, 1) 0, transparent 49%),
+    radial-gradient(at 74% 89%, hsla(30, 98%, 65%, 1) 0, transparent 51%),
+    radial-gradient(at 53% 75%, hsla(174, 94%, 68%, 1) 0, transparent 45%);
+}
+
+.text-gradient {
+  background-color: #fff;
+  background-image: radial-gradient(at 4% 36%, hsla(0, 0%, 100%, 1) 0, transparent 53%),
+    radial-gradient(at 100% 60%, rgb(0, 0, 0) 0, transparent 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+mat-toolbar {
+  --mdc-typography-button-letter-spacing: 0.1px;
+}
