@@ -2,6 +2,7 @@
 
 For the module, use this link : <a href="https://docs.google.com/document/d/1gz8z0KjQAb5vYeb_I1j6RhfTMTaKn5ELBi1Cosqpnl0/edit?tab=t.0" target="_blank">Here </a>
 <br/> Looking for the slide? go this link here : <a href="https://bit.ly/raihan-intro-web3" target="_blank">Go slide</a>
+<br /> To get funds for you eth https://cloud.google.com/application/web3/faucet/ethereum/sepolia
 
 <img width="1456" height="1456" alt="localhost_4200_(Nest Hub Max)" src="https://github.com/user-attachments/assets/6caa6afa-8026-4edd-879b-69848ed694d9" />
 
